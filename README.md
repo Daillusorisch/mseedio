@@ -50,7 +50,7 @@ let rcd = MS3RecordBuilder::new()
 
 ### ref
 
-* [SEED Reference Manual 2.4](https://www.google.com/url?client=internal-element-cse&cx=000587591391783241528:dsb0_jo9rjy&q=http://fdsn.adc1.iris.edu/pdf/SEEDManual_V2.4.pdf&sa=U&ved=2ahUKEwjNkqyKm9CHAxUtk1YBHd6hHWkQFnoECAIQAQ&usg=AOvVaw28l6g2_BAgTJubCoWVlu5F).
+* [SEED Reference Manual 2.4](https://fdsn.org/pdf/SEEDManual_V2.4.pdf).
 * [miniseed3 doc](https://docs.fdsn.org/projects/miniseed3/en/latest/index.html)
 
 ### license
