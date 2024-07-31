@@ -5,7 +5,7 @@ on:
     branches:
     - master
   schedule:
-    - cron: '00 08 * * *'
+    - cron: '00 20 * * *'
 jobs:
   test:
     name: test
