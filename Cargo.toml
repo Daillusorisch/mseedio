@@ -3,10 +3,13 @@ name = "mseedio"
 version = "0.1.0"
 edition = "2021"
 authors = ["jt_yang <jt_yang@whu.edu.cn>"]
-keywords = ["miniseed", "seismology"]
 readme = "README.md"
-description = "A library for reading and writing miniSEED files"
 license = "MIT"
+keywords = ["miniseed", "seismology"]
+description = "A library for reading and writing miniSEED files"
+repository = "https://github.com/Daillusorisch/mseedio"
+documentation = "https://docs.rs/mseedio"
+
 
 [lib]
 crate-type = ["cdylib", "rlib"]
