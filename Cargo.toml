@@ -1,0 +1,39 @@
+[package]
+name = "mseedio"
+version = "0.1.0"
+edition = "2021"
+authors = ["jt_yang <jt_yang@whu.edu.cn>"]
+keywords = ["miniseed", "seismology"]
+readme = "README.md"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+anyhow = { version = "1.0", default-features = false }
+bitflags = { version = "2.6", features = ["serde"] }
+crc = { version = "3"}
+log = "0.4.22"
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+serde_json = { version = "1.0", default-features = false }
+
+
+[dev-dependencies]
+env_logger = "*"
+clap = { version = "*" , features = ["derive"] }
+
+[[example]]
+name = "mseedviewer"
+
+[features]
+default = ["std"]
+
+# default
+std = ["serde/std", "serde_json/std", "anyhow/std"]
+
+# should be used in no_std environment
+alloc = ["serde/alloc", "serde_json/alloc"]
+
+
+[profile.release]
+lto = true
