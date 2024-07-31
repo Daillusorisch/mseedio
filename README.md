@@ -25,7 +25,9 @@ for rcd in ms3 {
 * Write
 
 ```rust,ignore
+// your data
 let payload: [i32; 500] = [/*...*/];
+// build a record using MS3RecordBuilder
 let rcd = MS3RecordBuilder::new()
         .data_payload_encoding(DataEncoding::Steim1)
         .data(DecodedData::I32(payload.to_vec()))
@@ -38,6 +40,15 @@ let rcd = MS3RecordBuilder::new()
         .unwrap()
         .build()
         .unwrap();
+
+// encode this record into bytes
+let bytes = rcd.to_bytes();
+```
+
+What's more, try example `mseedviewer` using
+
+```bash
+cargo run --example mseedviewer -- --help
 ```
 
 ## todo
