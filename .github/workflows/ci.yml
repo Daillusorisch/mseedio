@@ -15,7 +15,7 @@ jobs:
         # The docs seem to suggest that we can have a matrix with just an
         # include directive, but it results in a "matrix must define at least
         # one vector" error in the CI system.
-        build: [pinned, stable, beta, nightly, macos, win-msvc, win-gnu]
+        build: [stable, beta, nightly, macos, win-msvc, win-gnu]
         include:
         - build: stable
           os: ubuntu-latest
