@@ -64,3 +64,23 @@ fn encode_steim2() {
     let bytes = include_bytes!("../tests/data/reference-sinusoid-steim2.mseed3");
     assert_eq!(rcd.to_bytes().unwrap(), bytes);
 }
+
+#[cfg(feature = "chrono")]
+#[test]
+fn chrono() {
+    init_logger();
+    let payload = payloads::STEIM2_PAYLOAD;
+    let rcd = MS3RecordBuilder::new()
+        .data_payload_encoding(DataEncoding::Steim2)
+        .data(DecodedData::I32(payload.to_vec()))
+        .sample_rate(5.0)
+        .start_time(chrono::DateTime::parse_from_rfc3339("2022-06-05T20:32:38.123456789Z").unwrap())
+        .flag(FieldFlag::ClockLocked)
+        .data_public_version(1)
+        .sid("FDSN:XX_TEST__M_H_Z")
+        .unwrap()
+        .build()
+        .unwrap();
+    let bytes = include_bytes!("../tests/data/reference-sinusoid-steim2.mseed3");
+    assert_eq!(rcd.to_bytes().unwrap(), bytes);
+}

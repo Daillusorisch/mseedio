@@ -168,6 +168,23 @@ impl fmt::Display for MS3Time {
     }
 }
 
+#[cfg(feature = "chrono")]
+use chrono::{Datelike, Timelike};
+#[cfg(feature = "chrono")]
+impl<Tz: chrono::TimeZone> Into<MS3Time> for chrono::DateTime<Tz> {
+    fn into(self) -> MS3Time {
+        let utct = self.to_utc();
+        MS3Time {
+            nanosecond: utct.timestamp_subsec_nanos(),
+            year: utct.year() as u16,
+            day_of_year: utct.ordinal() as u16,
+            hour: utct.hour() as u8,
+            minute: utct.minute() as u8,
+            second: utct.second() as u8,
+        }
+    }
+}
+
 impl MS3Time {
     pub fn from_parts(
         y: usize,
